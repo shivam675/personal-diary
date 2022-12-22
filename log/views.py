@@ -54,8 +54,9 @@ def home(request):
 
 @login_required
 def create_log(request):
+    tim = timezone.now()
     if request.method == 'GET':
-        return render(request, 'create_log.html', {'form': LogForm()})
+        return render(request, 'create_log.html', {'form': LogForm(), 'time': tim})
     else:
         try:
             form = LogForm(request.POST)

@@ -4,8 +4,8 @@
 		{% comment %} <h2>New Todo</h2> {% endcomment %}
 	</div>
 </div>
-<div class="row justify-content-center mt-5">
-	<div class="col-md-5">
+<div class="row justify-content-center mt-8">
+	<div class="col-md-8">
 		{% if error %}
 		<div class="alert alert-danger" role="alert">
 			{{ error }}
@@ -13,29 +13,19 @@
 		{% endif %}
 		<form method="POST">
 			{% csrf_token %}
-			{% comment %} <div class="form-group">
-				<label for="title">created</label>
-				<input
-					type="text"
-					name="created"
-					class="form-control"
-					id="created"
-					required
-				/>
-			</div> {% endcomment %}
 
 			<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 				<header class="masthead mb-auto">
 				</header>
-				<main
+				{% comment %} <main
 					role="main"
 					class="inner cover justify-content-center align-items-center text-center"
-				>
+				> {% endcomment %}
 					<h1 class="cover-heading">Log</h1>
 					<br />
 					<p class="lead">
-						<label for="description"></label>
-				<textarea name="description" class="form-control" id="description"></textarea>
+						<label for="description">Date & Time --- {{ time }}</label>
+				<textarea name="description" rows="15" class="form-control" id="description"></textarea>
 					</p>
 					<br />
 					<div class="form-group form-check">
