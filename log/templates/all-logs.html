@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+<div class="row justify-content-center mt-5">
+	<div class="col-md-10">
+		<h1>All Logs</h1>
+	</div>
+</div>
+{% for log_sublist in decent_list %}
+<p>
+<div class="card-group">
+	{% for log in log_sublist %}
+		<div class="card {% if log.intresting %}text-dark bg-warning mb-3{% else %}card text-white bg-secondary mb-3{% endif %}" style="width: 18rem;">
+			{% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
+			<div class="card-body">
+			<h5 class="card-title">ID : {{ log.id }}</h5>
+			<p class="card-text">{{log.description |truncatechars:50}}</p>
+			<a href="{% url 'view_logs' log.id %}" class="btn btn-light">Read</a>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+</p>
+{% endfor %}
+
+{% endblock %}

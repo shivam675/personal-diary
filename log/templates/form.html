@@ -1,0 +1,67 @@
+
+
+{% extends 'index.html' %}
+
+
+{% block content %}
+<h1 class="text-center">Personal Diary</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+      <div class="container-sm">
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+        <form class="form-control" method="POST">
+          {% csrf_token %}
+          
+          <div class="input-group mb-3">
+            <fieldset>
+              <legend>Today's Log</legend>
+              {% csrf_token %}
+              {{ form.as_p }}
+              {% comment %} <input type="text" class="form-control" id="created" name="Date and Time">
+              <input type="text" class="form-control" id="text" name="Log">
+               {% endcomment %}
+              <button type="submit" class="btn btn-primary">Save</button>
+            </fieldset>
+            
+          </div>
+          <br>
+          <br>
+          <input class="btn btn-warning" type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <div class="container">
+    <form method="POST">
+      <fieldset>
+        <legend>Today's Log</legend>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Save</button>
+      </fieldset>
+    </form>
+</div>
+
+{% endblock %} {% endcomment %}

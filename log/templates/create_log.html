@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block content %}
+<div class="row justify-content-center mt-5">
+	<div class="col-md-5">
+		{% comment %} <h2>New Todo</h2> {% endcomment %}
+	</div>
+</div>
+<div class="row justify-content-center mt-5">
+	<div class="col-md-5">
+		{% if error %}
+		<div class="alert alert-danger" role="alert">
+			{{ error }}
+		</div>
+		{% endif %}
+		<form method="POST">
+			{% csrf_token %}
+			{% comment %} <div class="form-group">
+				<label for="title">created</label>
+				<input
+					type="text"
+					name="created"
+					class="form-control"
+					id="created"
+					required
+				/>
+			</div> {% endcomment %}
+
+			<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+				<header class="masthead mb-auto">
+				</header>
+				<main
+					role="main"
+					class="inner cover justify-content-center align-items-center text-center"
+				>
+					<h1 class="cover-heading">Log</h1>
+					<br />
+					<p class="lead">
+						<label for="description"></label>
+				<textarea name="description" class="form-control" id="description"></textarea>
+					</p>
+					<br />
+					<div class="form-group form-check">
+						<input
+							type="checkbox"
+							name="intresting"
+							class="form-check-input"
+							id="intresting"
+						/>
+						<label class="form-check-label" for="intresting"
+							>Important</label
+						>
+					</div>
+					<button type="submit" class="btn btn-primary">Save</button>
+					<p class="lead">
+					</p>
+				</main>
+{% comment %} 
+			<div class="form-group">
+				<label for="description">description</label>
+				<textarea name="description" class="form-control" id="description"></textarea>
+			</div>
+			<div class="form-group form-check">
+				<input
+					type="checkbox"
+					name="intresting"
+					class="form-check-input"
+					id="intresting"
+				/>
+				<label class="form-check-label" for="intresting"
+					>Important</label
+				>
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button> {% endcomment %}
+		</form>
+	</div>
+</div>
+{% endblock %}
